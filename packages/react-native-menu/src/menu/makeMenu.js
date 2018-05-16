@@ -37,6 +37,9 @@ module.exports = (React, ReactNative, { constants, model, styles }) => {
     componentWillUnmount() {
       this.context.menuController.unregisterMenu(this._name);
     },
+    shouldComponentUpdate() {
+      return false;
+    },
     getName() {
       return this._name;
     },
