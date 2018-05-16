@@ -20,7 +20,7 @@ module.exports = (React, ReactNative, { model, styles }) => {
         ));
       }
       return (
-        <TouchableWithoutFeedback onPress={this.onPress}>
+        <TouchableWithoutFeedback testID={this.props.testID} onPress={this.onPress}>
           <View style={[styles.option, this.props.style]}>
             { this.props.children }
           </View>
