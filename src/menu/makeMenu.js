@@ -13,7 +13,8 @@ module.exports = (React, ReactNative, { constants, model, styles }) => {
       name: PropTypes.string,
       onSelect: PropTypes.func,
       onOpen: PropTypes.func,
-      onClose: PropTypes.func
+      onClose: PropTypes.func,
+      onShouldComponentUpdate: PropTypes.func
     },
     getDefaultProps() {
       return {
@@ -38,7 +39,7 @@ module.exports = (React, ReactNative, { constants, model, styles }) => {
       this.context.menuController.unregisterMenu(this._name);
     },
     shouldComponentUpdate() {
-      return false;
+      return this.props.onShouldComponentUpdate ? this.props.onShouldComponentUpdate() : false;
     },
     getName() {
       return this._name;
